@@ -1,0 +1,315 @@
+
+.react-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.back-link {
+  color: #9bd7ff;
+  text-decoration: none;
+  border: 1px solid #38516f;
+  padding: 9px 13px;
+  border-radius: 9px;
+  font-size: 12px;
+}
+
+.back-link:hover {
+  background: #243650;
+}
+
+.react-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 0.8fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.react-chat-panel {
+  height: min(760px, calc(100vh - 140px));
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.react-model-info {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  background: #101b2e;
+  border: 1px solid #2a405c;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 14px;
+}
+
+.react-model-info strong,
+.react-model-info small {
+  display: block;
+}
+
+.react-model-info strong {
+  font-size: 12px;
+}
+
+.react-model-info small {
+  color: #91a9c9;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+.model-indicator {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #56e0ac;
+  box-shadow: 0 0 10px #56e0ac66;
+}
+
+.react-chat-panel .chat-messages {
+  min-height: 180px;
+}
+
+.react-hint {
+  color: #8199b8;
+  font-size: 11px;
+  margin: 8px 2px 0;
+}
+
+.react-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+.tool-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tool-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #101b2e;
+  border: 1px solid #2b405a;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.tool-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  border-radius: 9px;
+  background: #263d59;
+  color: #9bd7ff;
+  font-size: 21px;
+}
+
+.tool-card strong,
+.tool-card small {
+  display: block;
+}
+
+.tool-card strong {
+  font-size: 12px;
+}
+
+.tool-card small {
+  color: #91a9c9;
+  font-size: 11px;
+  margin-top: 5px;
+}
+
+.react-tool-logs {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.react-tool-entry {
+  border-bottom: 1px solid #293a52;
+  padding: 10px 2px;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.react-tool-entry strong {
+  display: block;
+  color: #9bd7ff;
+  margin-bottom: 4px;
+}
+
+.react-tool-entry small {
+  color: #91a9c9;
+}
+
+.subtle-button {
+  background: #243650;
+  color: #b9d5eb;
+  border: 1px solid #3a506b;
+  border-radius: 7px;
+  padding: 6px 9px;
+  cursor: pointer;
+}
+
+.react-security-panel p {
+  color: #a9bfd9;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.react-file-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #9bd7ff;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 850px) {
+  .react-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .react-chat-panel {
+    height: 620px;
+  }
+}
+
+@media (max-width: 550px) {
+  .react-header-actions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .react-chat-panel {
+    min-height: 480px;
+    height: 70vh;
+  }
+}
+
+
+
+.react-widget {
+  margin: 12px 0;
+  padding: 14px;
+  background: #101b2e;
+  border: 1px solid #38516f;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+
+
+.react-email-widget {
+margin: 12px 0 18px;
+padding: 16px;
+background: #101b2e;
+border: 1px solid #3b5876;
+border-radius: 12px;
+overflow-wrap: anywhere;
+}
+
+.react-email-heading {
+color: #75e3bb;
+font-weight: 700;
+font-size: 13px;
+margin-bottom: 15px;
+}
+
+.react-email-field {
+margin: 10px 0;
+font-size: 12px;
+line-height: 1.6;
+}
+
+.react-email-field strong,
+.react-email-body-label {
+color: #9bd7ff;
+}
+
+.react-email-body-label {
+display: block;
+margin-top: 16px;
+font-size: 12px;
+}
+
+.react-email-body {
+white-space: pre-wrap;
+overflow-wrap: anywhere;
+font: inherit;
+font-size: 12px;
+line-height: 1.65;
+background: #17263c;
+border-radius: 8px;
+padding: 12px;
+margin: 8px 0;
+}
+
+.react-email-note {
+color: #75e3bb;
+font-size: 11px;
+line-height: 1.6;
+margin-bottom: 0;
+}
+
+.react-email-edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 12px 0;
+  font-size: 0.9rem;
+}
+
+
+.react-email-input {
+box-sizing: border-box;
+width: 100%;
+padding: 10px 12px;
+border: 1px solid #777;
+border-radius: 8px;
+background: transparent;
+color: inherit;
+font: inherit;
+}
+
+.react-email-confirm {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+margin: 16px 0;
+line-height: 1.5;
+}
+
+.react-email-confirm input {
+margin-top: 4px;
+}
+
+.react-email-send-button {
+width: 100%;
+padding: 12px 16px;
+border: 0;
+border-radius: 8px;
+cursor: pointer;
+font: inherit;
+font-weight: 700;
+}
+
+.react-email-send-button:disabled {
+cursor: not-allowed;
+opacity: 0.6;
+}
+
+.react-email-note {
+overflow-wrap: anywhere;
+line-height: 1.5;
+}
+
+.react-email-widget {
+overflow-wrap: anywhere;
+}

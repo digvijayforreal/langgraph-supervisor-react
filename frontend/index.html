@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LangGraph Studio — Multi-Workflow</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>◇ LangGraph Studio</h1>
+      <p>Supervisor · Gemini ReAct · AI Tools</p>
+    </div>
+    <span class="status-badge" id="api-status">Ready</span>
+  </header>
+
+  <main class="dashboard">
+    <section class="panel chat-panel">
+      <div class="panel-heading">
+        <h2>AI Chat</h2>
+        <span id="chat-status">Idle</span>
+      </div>
+
+      <!-- New workflow selector -->
+      <div class="workflow-row">
+        <label for="workflow-select">Active workflow:</label>
+        <select id="workflow-select">
+          <option value="supervisor">Supervisor — Existing Workflow</option>
+          <option value="react">ReAct — Gemini + Tools</option>
+        </select>
+      </div>
+
+      <div id="chat-messages" class="chat-messages">
+        <p class="placeholder">
+          Ask anything. General questions are answered by the Supervisor.
+        </p>
+      </div>
+
+      <div class="upload-row" id="upload-row">
+        <label for="upload-file">Attach CSV / XLSX / PDF:</label>
+        <input type="file" id="upload-file" accept=".csv,.xlsx,.pdf">
+        <span id="upload-status"></span>
+      </div>
+
+      <form id="chat-form" class="chat-form">
+        <textarea
+          id="query-input"
+          placeholder="Type a message... (Enter to send, Shift+Enter for a new line)"
+          rows="2"
+          required
+        ></textarea>
+        <button id="send-button" type="submit">Send ➤</button>
+      </form>
+    </section>
+
+    <section class="panel pipeline-panel" id="pipeline-panel">
+      <div class="panel-heading">
+        <h2>Live Execution Pipeline</h2>
+        <span id="pipeline-status">Waiting</span>
+      </div>
+
+      <div class="pipeline">
+        <div class="graph-node" id="node-start">
+          <strong>User Query</strong>
+          <span class="node-status">Idle</span>
+        </div>
+        <div class="connector">↓</div>
+
+        <div class="graph-node supervisor clickable"
+             id="node-supervisor"
+             data-agent="supervisor"
+             role="button"
+             tabindex="0">
+          <strong>Supervisor LLM</strong>
+          <small>Routing · General Chat · Review</small>
+          <span class="node-status">Idle</span>
+          <div id="review-summary" class="supervisor-review-status">
+            Waiting for task
+          </div>
+        </div>
+
+        <div class="connector">↓</div>
+        <div class="graph-node" id="node-router">
+          <strong>Conditional Route</strong>
+          <span class="node-status">Idle</span>
+        </div>
+        <div class="branch-lines">↙ ↓ ↘</div>
+
+        <div class="worker-grid">
+          <div class="graph-node worker clickable"
+               id="node-research" data-agent="research"
+               role="button" tabindex="0">
+            <strong>Web Research</strong>
+            <small>Tavily Search</small>
+            <span class="node-status">Idle</span>
+          </div>
+
+          <div class="graph-node worker clickable"
+               id="node-data_analyst" data-agent="data_analyst"
+               role="button" tabindex="0">
+            <strong>Data Analyst</strong>
+            <small>Pandas + Charts</small>
+            <span class="node-status">Idle</span>
+          </div>
+
+          <div class="graph-node worker clickable"
+               id="node-document" data-agent="document"
+               role="button" tabindex="0">
+            <strong>Document AI</strong>
+            <small>PDF Tools</small>
+            <span class="node-status">Idle</span>
+          </div>
+        </div>
+
+        <div class="loop-hint">
+          ↖ Worker draft returns to the same Supervisor for review
+        </div>
+        <div class="connector">↓</div>
+        <div class="graph-node" id="node-end">
+          <strong>END</strong>
+          <span class="node-status">Idle</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel inspector-panel" id="inspector-panel">
+      <div class="panel-heading">
+        <h2>Node Inspector</h2>
+        <span>Click a node</span>
+      </div>
+      <div id="inspector-content">
+        <p class="placeholder">
+          Click the Supervisor or a Worker to see its execution details and review history.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <section class="panel logs-panel">
+    <div class="panel-heading">
+      <h2>Execution Logs</h2>
+      <span id="execution-time">—</span>
+    </div>
+    <div id="execution-logs" class="logs-content">
+      <p class="placeholder">Waiting for events...</p>
+    </div>
+  </section>
+
+  <script type="module" src="/static/js/main.js"></script>
+</body>
+</html>

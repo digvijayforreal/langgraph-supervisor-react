@@ -1,0 +1,9 @@
+product,region,units_sold,revenue
+Laptop,West,4,80000
+Mouse,West,10,10000
+Laptop,East,3,60000
+Keyboard,East,8,24000
+Mouse,East,5,5000
+Keyboard,West,3,9000
+Laptop,West,2,40000
+Monitor,East,4,48000

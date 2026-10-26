@@ -1,0 +1,104 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini ReAct Studio — LangGraph</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/react.css">
+</head>
+<body class="react-page">
+  <header class="header">
+    <div>
+      <h1>◇ Gemini ReAct Studio</h1>
+      <p>ONE AGENT · FOUR TOOLS · DYNAMIC REASONING</p>
+    </div>
+    <div class="react-header-actions">
+      <span class="status-badge" id="react-api-status">Ready</span>
+      <a class="back-link" href="/">← Supervisor Studio</a>
+    </div>
+  </header>
+
+  <main class="react-layout">
+    <section class="panel react-chat-panel">
+      <div class="panel-heading">
+        <h2>ReAct Chat</h2>
+        <span id="react-chat-status">Idle</span>
+      </div>
+
+      <div class="react-model-info">
+        <span class="model-indicator"></span>
+        <div>
+          <strong>Gemini 3.5 Flash-Lite</strong>
+          <small>Tool-calling agent</small>
+        </div>
+      </div>
+
+      <div id="react-messages" class="chat-messages">
+        <p class="placeholder">
+          Welcome to ReAct Studio. Ask a question, search the web,
+          generate a PDF, or request an email draft.
+        </p>
+      </div>
+
+      <form id="react-chat-form" class="chat-form">
+        <textarea
+          id="react-query-input"
+          placeholder="Ask Gemini to do something..."
+          rows="2"
+          required
+        ></textarea>
+        <button id="react-send-button" type="submit">Run ➤</button>
+      </form>
+      <p class="react-hint">Enter to send · Shift+Enter for a new line</p>
+    </section>
+
+    <aside class="react-sidebar">
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Available Tools</h2>
+          <span>4 tools</span>
+        </div>
+        <div class="tool-list">
+          <div class="tool-card">
+            <span class="tool-icon">⌕</span>
+            <div><strong>Web Search</strong><small>Tavily · Online research</small></div>
+          </div>
+          <div class="tool-card">
+            <span class="tool-icon">▤</span>
+            <div><strong>PDF Generator</strong><small>Create downloadable reports</small></div>
+          </div>
+          <div class="tool-card">
+            <span class="tool-icon">◷</span>
+            <div><strong>Date & Time</strong><small>India time and date queries</small></div>
+          </div>
+          <div class="tool-card">
+            <span class="tool-icon">✉</span>
+            <div><strong>Email Drafting</strong><small>Preview first · Approval required</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-heading">
+          <h2>Tool Activity</h2>
+          <button id="react-clear-logs" class="subtle-button" type="button">Clear</button>
+        </div>
+        <div id="react-tool-logs" class="react-tool-logs">
+          <p class="placeholder">Tool activity will appear here.</p>
+        </div>
+      </section>
+
+      <section class="panel react-security-panel">
+        <h2>Execution Safety</h2>
+        <p>Emails are preview-only. No email is sent by the ReAct agent.</p>
+        <p>Generated files and tool results will be displayed when available.</p>
+      </section>
+    </aside>
+  </main>
+
+  <script type="module" src="/static/js/react.js"></script>
+</body>
+</html>
